@@ -1,0 +1,52 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    display: flex;
+    font-family: Roboto;
+    align-items: center;
+    justify-content: center;
+}
+.container{
+    border-radius:12px;
+}
+.weather-container
+{
+    display: flex;
+    justify-content: top;
+    align-items: center;
+    flex-direction: column;
+    width: 360px;
+    height: 640px;
+    background-color: rgba(0, 0, 0, .567);
+    color: seashell;
+    border-radius:12px;
+    
+}
+sup{
+    font-size: 30px;
+}
+.icon{
+    height: 100px;
+    width: 100px;
+}
+.icon{
+    margin-top: 0;
+}
+p{
+    margin: 0;
+}
+.city{
+    font-size: 2.2em;
+}
+.temp{
+font-size: 3em;
+}
+p.weather{
+    font-size: 2em;
+}
+.img{
+    width: 300px;
+    height: 600px;
+}
