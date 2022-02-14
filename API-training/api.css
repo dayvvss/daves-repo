@@ -10,6 +10,8 @@ body{
 }
 .container{
     border-radius:12px;
+    height: 640px;
+    background-repeat: no-repeat;
 }
 .weather-container
 {
@@ -19,7 +21,7 @@ body{
     flex-direction: column;
     width: 360px;
     height: 640px;
-    background-color: rgba(0, 0, 0, .567);
+    background-color: rgba(0, 0, 0, .5);
     color: seashell;
     border-radius:12px;
     
@@ -46,7 +48,21 @@ font-size: 3em;
 p.weather{
     font-size: 2em;
 }
+input{
+    margin: 10px;
+    width: 200px;
+    height: 2em;
+    border-radius: 5px;
+    border: 0;
+}
+input:focus{
+    border: 0 blue;
+}
 .img{
     width: 300px;
     height: 600px;
+}
+
+#city{
+    width: 200px;
 }

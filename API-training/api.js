@@ -1,3 +1,5 @@
+// var AutoComplete = require("autocomplete-js");
+
 var time = new Date()
 console.log(time.getHours())
 const timenow = time.getHours()
@@ -7,8 +9,11 @@ var timePeriod = (timenow >= 6 && timenow<8) ? 'sunrise' :
 (timenow >= 14 && timenow<16) ? 'afternoon' : 
 (timenow >= 17 && timenow<20) ? 'evening' : 
 'night sky';
-console.log(timePeriod)
-fetch('http://api.openweathermap.org/data/2.5/weather?q=Nairobi,ke&units=metric&APPID=d541bfdf8ce45768abcebeac0bfdc560')
+
+let city = 'Seattle'
+let country = 'US'
+
+fetch('http://api.openweathermap.org/data/2.5/weather?q='+city+','+country+'&units=metric&APPID=d541bfdf8ce45768abcebeac0bfdc560')
 .then(res => res.json())
 .then(data => 
     {console.log(data)
@@ -24,7 +29,7 @@ fetch('http://api.openweathermap.org/data/2.5/weather?q=Nairobi,ke&units=metric&
        .then(response => response.json())
        .then(
            result => {console.log(result)
-           const img_src =  result.results[2].urls.regular
+           const img_src =  result.results[1].urls.regular
        document.querySelector('.container').setAttribute("style","background-image:url("+img_src+")")
        })
        .catch(error => console.log('error', error));
@@ -54,11 +59,32 @@ const access_key = 'MIeSZoYX0NPInrjXJDli7Hq4dsOIqdha8h1JRImL__4'
 //     })
 
 
+var headers = new Headers();
+headers.append("X-CSCAPI-KEY", "bDNqMjEyNGtmTXdNc0NVY2I1aFMyRDBDVXpTSWo4aGhZTEZlVzFFeA== ");
 
 var requestOptions = {
-    method: 'GET',
-    redirect: 'follow',
-    authorization:'MIeSZoYX0NPInrjXJDli7Hq4dsOIqdha8h1JRImL__4'
-  };
+ method: 'GET',
+ headers: headers,
+ redirect: 'follow'
+};
+
+fetch("https://api.countrystatecity.in/v1/countries", requestOptions)
+.then(response => response.json())
+.then(result => 
+    {console.log(result)
+
+    result.forEach(element => {
+        const countries = element.name
+        let optionElement = document.createElement('option')
+        optionElement.setAttribute('value',countries)
+        let optionText = document.createTextNode(countries)
+        optionElement.appendChild(optionText)
+        document.getElementById('city').appendChild(optionElement)
+    });
+
   
+    }
+
+)
+.catch(error => console.log('error', error));
  

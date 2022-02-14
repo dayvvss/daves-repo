@@ -19,9 +19,14 @@
         <p class="weather">
             <p class="description"></p>
         </p>
-        
+        <input class="input" type="text" placeholder="Enter city" data-autocomplete-method="POST" data-autocomplete-param-name="query_search"
+        data-autocomplete-minchars="2" 
+        />
+        <select name="city" id="city">
+            <option value="Select City">Select City</option>
+        </select>
     </div>
-    </div>
+    
    
 
     <div class="img">
@@ -32,5 +37,6 @@
 
 
     <script src="api.js"></script>
+    
 </body>
 </html>
